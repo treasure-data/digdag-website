@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digdag – Open Source Workflow Engine for the Multi-Cloud Era</title>
+<meta name="description" content="Digdag is a simple, open source, multi-cloud workflow engine to build, run, schedule, and monitor complex pipelines of tasks.">
+<link rel="canonical" href="https://digdag.io/">
+<link rel="icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&family=Roboto:wght@400;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5P2GDC3');
+</script>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P2GDC3" height="0" width="0" hidden></iframe></noscript>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="i-deploy" viewBox="-440 -440 1391 1391"><path transform="translate(0 480) scale(1 -1)" d="M280 344l0-176 14-6 114 88 0 12-114 88z m16-16l91-72-91-72z m-176 16l0-176 14-6 114 88 0 12-114 88z m16-16l91-72-91-72z m120 184c-68 0-133-27-181-75-48-48-75-113-75-181 0-68 27-133 75-181 48-48 113-75 181-75 68 0 133 27 181 75 48 48 75 113 75 181 0 68-27 133-75 181-48 48-113 75-181 75z m170-426c-46-45-106-70-170-70-64 0-124 25-170 70-45 46-70 106-70 170 0 64 25 124 70 170 46 45 106 70 170 70 64 0 124-25 170-70 45-46 70-106 70-170 0-64-25-124-70-170z"/></symbol>
+<symbol id="i-config" viewBox="-440 -440 1391 1391"><path transform="translate(0 480) scale(1 -1)" d="M425 350l50 50-75 75-50-50-38 13 0 74-112 0 0-74-38-13-50 50-75-75 50-50-13-38-74 0 0-112 74 0 13-38-50-50 75-75 50 50 38-13 0-74 112 0 0 74 38 13 50-50 75 75-50 50 13 38 74 0 0 112-74 0z m71-134l-70 0-19-58 46-46-53-53-46 46-58-19 0-70-80 0 0 70-58 19-46-46-53 53 46 46-19 58-70 0 0 80 70 0 19 58-46 46 53 53 46-46 58 19 0 70 80 0 0-70 58-19 46 46 53-53-46-46 19-58 70 0z m-240 96c-31 0-56-25-56-56 0-31 25-56 56-56 31 0 56 25 56 56 0 31-25 56-56 56z m0-96c-22 0-40 18-40 40 0 22 18 40 40 40 22 0 40-18 40-40 0-22-18-40-40-40z"/></symbol>
+<symbol id="i-dependency" viewBox="-440 -440 1391 1391"><path transform="translate(0 480) scale(1 -1)" d="M8 512l-8-8 0-496 8-8 496 0 8 8 0 496-8 8z m488-496l-480 0 0 480 480 0z m-263 156l7-4 224 0 0 16-220 0-93 140-7 4-96 0 0-16 92 0z m7 156l224 0 0-16-224 0z"/></symbol>
+<symbol id="i-cloud" viewBox="-440 -440 1391 1391"><path transform="translate(0 480) scale(1 -1)" d="M290 333l-112-152 6-13 39 0-15-95 14-6 112 152-6 13-39 0 15 95z m22-117l-83-113 11 72-8 9-32 0 83 113-11-72 8-9z m136 120c-4 90-80 160-176 160-85 0-157-53-174-128l-10 0c-48 0-88-44-88-96 0-50 38-88 88-88l56 0 0 16-56 0c-41 0-72 31-72 72 0 43 33 80 72 80l23 0 1 7c13 70 80 121 160 121 90 0 160-67 160-152l0-8 8 0c33 0 56-34 56-64 0-32-24-56-56-56l-72 0 0-16 72 0c41 0 72 31 72 72 0 36-25 75-64 80z"/></symbol>
+<symbol id="i-lingual" viewBox="-440 -440 1391 1391"><path transform="translate(0 480) scale(1 -1)" d="M64 392l112 0 0 72-80 0 0 16-16 0 0-32 80 0 0-40-112 0 0-64-48 0 0-256 512 0 0 256-448 0z m432-288l-480 0 0 224 480 0z m-464 184l32 0 0-16-32 0z m48 0l32 0 0-16-32 0z m48 0l32 0 0-16-32 0z m48 0l32 0 0-16-32 0z m48 0l32 0 0-16-32 0z m48 0l32 0 0-16-32 0z m48 0l32 0 0-16-32 0z m48 0l32 0 0-16-32 0z m48 0l32 0 0-16-32 0z m-384-128l32 0 0-16-32 0z m48 0l32 0 0-16-32 0z m48 0l208 0 0-16-208 0z m272 0l32 0 0-16-32 0z m48 0l32 0 0-16-32 0z m-96 0l32 0 0-16-32 0z m-288 64l32 0 0-16-32 0z m48 0l32 0 0-16-32 0z m48 0l32 0 0-16-32 0z m48 0l32 0 0-16-32 0z m48 0l32 0 0-16-32 0z m48 0l32 0 0-16-32 0z m48 0l32 0 0-16-32 0z m48 0l32 0 0-16-32 0z m48 0l32 0 0-16-32 0z"/></symbol>
+<symbol id="i-error" viewBox="-440 -440 1391 1391"><path transform="translate(0 480) scale(1 -1)" d="M440 211l-42 43-12-13 56-57 12 0 56 57-12 12-42-42 0 181-392 0 0-16 376 0z m-384 90l0-181 392 0 0 16-376 0 0 165 42-43 12 13-56 57-12 0-56-57 12-12z"/></symbol>
+<symbol id="i-modular" viewBox="-440 -440 1391 1391"><path transform="translate(0 480) scale(1 -1)" d="M0 0l512 0 0 512-512 0z m16 496l480 0 0-480-480 0z m120-64l-16 0 0-24-40 0 0-16 40 0 0-312 16 0 0 312 40 0 0 16-40 0z m256 0l-16 0 0-312-40 0 0-16 40 0 0-24 16 0 0 24 40 0 0 16-40 0z m-128 0l-16 0 0-168-40 0 0-16 40 0 0-168 16 0 0 168 40 0 0 16-40 0z"/></symbol>
+<symbol id="i-extensible" viewBox="-440 -440 1391 1391"><path transform="translate(0 480) scale(1 -1)" d="M362 386l131-130-131-130 13-12 137 136 0 12-137 136z m-225 12l-137-136 0-11 137-136 12 11-130 131 130 130z m119-94c-26 0-48-22-48-48 0-26 22-48 48-48 26 0 48 22 48 48 0 26-22 48-48 48z m0-80c-18 0-32 14-32 32 0 18 14 32 32 32 18 0 32-14 32-32 0-18-14-32-32-32z"/></symbol>
+<symbol id="i-admin" viewBox="-440 -440 1391 1391"><path transform="translate(0 480) scale(1 -1)" d="M0 96l248 0 0-80-72 0 0-16 160 0 0 16-72 0 0 80 248 0 0 344-512 0z m496 16l-480 0 0 48 480 0z m0 312l0-248-480 0 0 248z"/></symbol>
+<symbol id="i-secrets" viewBox="-440 -440 1391 1391"><path transform="translate(0 480) scale(1 -1)" d="M392 376c0 75-61 136-136 136-75 0-136-61-136-136l0-120-64 0 0-256 400 0 0 256-64 0z m-256 0c0 66 54 120 120 120 66 0 120-54 120-120l0-120-240 0z m304-360l-368 0 0 224 368 0z m-192 81l0-25 16 0 0 25c18 4 32 20 32 39 0 22-18 40-40 40-22 0-40-18-40-40 0-19 14-35 32-39z m8 63c13 0 24-11 24-24 0-13-11-24-24-24-13 0-24 11-24 24 0 13 11 24 24 24z"/></symbol>
+<symbol id="i-docker" viewBox="-440 -440 1391 1391"><path transform="translate(0 480) scale(1 -1)" d="M64 0l384 0 0 512-267 0-117-117z m368 16l-352 0 0 368 112 0 0 112 240 0z m-341 384l85 85 0-85z m109-200c-18 0-32-14-32-32 0-18 14-32 32-32 18 0 32 14 32 32l0 81 64 13 0-50c-5 2-10 4-16 4-18 0-32-14-32-32 0-18 14-32 32-32 18 0 32 14 32 32l0 130-96-19 0-99c-5 2-10 4-16 4z m0-48c-9 0-16 7-16 16 0 9 7 16 16 16 9 0 16-7 16-16 0-9-7-16-16-16z m80 16c-9 0-16 7-16 16 0 9 7 16 16 16 9 0 16-7 16-16 0-9-7-16-16-16z m16 126l0-15-64-13 0 15z"/></symbol>
+<symbol id="i-versioned" viewBox="-440 -440 1391 1391"><path transform="translate(0 480) scale(1 -1)" d="M240 464l272 0 0-16-272 0z m0-80l176 0 0-16-176 0z m0-80l272 0 0-16-272 0z m0-80l200 0 0-16-200 0z m0-80l272 0 0-16-272 0z m0-80l216 0 0-16-216 0z m-48 448l16 0 0-512-16 0z m-102-306l13-12 57 56 0 12-57 56-12-12 42-42-133 0 0-16 133 0z"/></symbol>
+</svg>
+
+<header class="site-header">
+  <nav class="site-nav" aria-label="Main">
+    <a class="logo" href="./"><img src="images/logo.png" width="816" height="250" alt="Digdag"></a>
+    <button class="menu-toggle" type="button" aria-controls="menu" aria-expanded="false" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="menu" class="menu">
+      <li><a href="https://docs.digdag.io/">Documentation</a></li>
+      <li><a href="https://github.com/treasure-data/digdag/">GitHub</a></li>
+      <li><a href="#download">Download</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="intro">
+    <h1>Simple, Open Source, Multi-Cloud Workflow Engine</h1>
+
+    <h2>Watch the Demo Video</h2>
+    <div class="video">
+      <script src="https://fast.wistia.com/embed/medias/p61xv5bp3n.jsonp" async></script>
+      <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
+      <div class="wistia_embed wistia_async_p61xv5bp3n videoFoam=true"></div>
+    </div>
+
+    <p class="lead">Digdag is a simple tool that helps you to build, run, schedule, and monitor complex pipelines of tasks. It handles dependency resolution so that tasks run in series or in parallel.<br>
+    Digdag replaces cron, facilitates IT operations automation, orchestrates data engineering tasks, coordinates machine learning pipelines, and more.</p>
+  </section>
+
+  <ul class="features">
+    <li class="feature">
+      <a href="https://docs.digdag.io/getting_started.html">
+        <svg class="icon" aria-hidden="true"><use href="#i-deploy"/></svg>
+        <h3>Easy deployment</h3>
+        <p>Just download the binary and you are good to go. The same binary can run both server and client.</p>
+      </a>
+    </li>
+    <li class="feature">
+      <a href="https://docs.digdag.io/workflow_definition.html">
+        <svg class="icon" aria-hidden="true"><use href="#i-config"/></svg>
+        <h3>Simple Configuration</h3>
+        <p>Digdag configurations are written in YAML, a widely used simple markup language.</p>
+      </a>
+    </li>
+    <li class="feature">
+      <a href="https://docs.digdag.io/architecture.html">
+        <svg class="icon" aria-hidden="true"><use href="#i-dependency"/></svg>
+        <h3>Dependency resolution</h3>
+        <p>Read and write workflows with dependencies. Say goodbye to “timing” cron jobs to coordinate multiple tasks.</p>
+      </a>
+    </li>
+    <li class="feature">
+      <a href="https://docs.digdag.io/operators.html">
+        <svg class="icon" aria-hidden="true"><use href="#i-cloud"/></svg>
+        <h3>Multi-Cloud</h3>
+        <p>Move and join data across Amazon Redshift/S3, Google BigQuery/Cloud Storage and on-premises databases.</p>
+      </a>
+    </li>
+    <li class="feature">
+      <a href="https://docs.digdag.io/python_api.html">
+        <svg class="icon" aria-hidden="true"><use href="#i-lingual"/></svg>
+        <h3>Multi-lingual</h3>
+        <p>Native support for Python and Ruby. This is where data scientists and web developers collaborate.</p>
+      </a>
+    </li>
+    <li class="feature">
+      <div>
+        <svg class="icon" aria-hidden="true"><use href="#i-error"/></svg>
+        <h3>Error handling</h3>
+        <p>Workflows sometimes fail. Digdag ships with robust error handling. Resume, not restart.</p>
+      </div>
+    </li>
+    <li class="feature">
+      <a href="https://docs.digdag.io/architecture.html">
+        <svg class="icon" aria-hidden="true"><use href="#i-modular"/></svg>
+        <h3>Modular</h3>
+        <p>Digdag is designed to be modular so that each workflow can be re-used in different contexts.</p>
+      </a>
+    </li>
+    <li class="feature">
+      <a href="https://docs.digdag.io/operators.html">
+        <svg class="icon" aria-hidden="true"><use href="#i-extensible"/></svg>
+        <h3>Extensible</h3>
+        <p>Digdag is designed to be pluggable so that you can hack on your own operators, control flows and more.</p>
+      </a>
+    </li>
+    <li class="feature">
+      <div>
+        <svg class="icon" aria-hidden="true"><use href="#i-admin"/></svg>
+        <h3>Admin UI</h3>
+        <p>Not a command line expert? No worries, Digdag has an admin UI in active development.</p>
+      </div>
+    </li>
+    <li class="feature">
+      <div>
+        <svg class="icon" aria-hidden="true"><use href="#i-secrets"/></svg>
+        <h3>Secure Secrets</h3>
+        <p>Digdag provides a secrets vault so that sensitive information like API keys and passwords are handled securely.</p>
+      </div>
+    </li>
+    <li class="feature">
+      <a href="https://docs.digdag.io/architecture.html#running-tasks-on-docker">
+        <svg class="icon" aria-hidden="true"><use href="#i-docker"/></svg>
+        <h3>Docker support</h3>
+        <p>Digdag lets you run tasks from Docker containers to support cloud native workflows.</p>
+      </a>
+    </li>
+    <li class="feature">
+      <a href="https://docs.digdag.io/concepts.html">
+        <svg class="icon" aria-hidden="true"><use href="#i-versioned"/></svg>
+        <h3>Version Controlled</h3>
+        <p>Digdag is workflow as code. Revisions and rollbacks supported.</p>
+      </a>
+    </li>
+  </ul>
+
+  <section class="getting-started">
+    <h2>Getting Started</h2>
+    <pre id="download">$ curl -o ~/bin/digdag --create-dirs -L "https://dl.digdag.io/digdag-latest"
+$ chmod +x ~/bin/digdag
+$ echo 'export PATH="$HOME/bin:$PATH"' &gt;&gt; ~/.bashrc</pre>
+  </section>
+
+  <!-- Newsletter signup is hidden for now. Remove `hidden` and wire the form to a
+       provider (e.g. a Mailchimp-hosted form action) to bring it back. -->
+  <section class="newsletter" hidden>
+    <h2>Subscribe to our newsletter</h2>
+    <p>Join our newsletter and you will be the first one to know about the greatest and latest on Digdag</p>
+    <form method="post">
+      <label>Email Address <input type="email" name="EMAIL" placeholder="sada@digdag.io" required></label>
+      <input type="submit" value="Subscribe">
+    </form>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <img src="images/logo-footer.png" width="174" height="55" alt="Digdag">
+  <h2>Follow us</h2>
+  <a class="github" href="https://github.com/treasure-data/digdag/issues" target="_blank" rel="noopener" title="GitHub">GitHub</a>
+  <div class="legal">
+    <p>© <span id="year">2026</span> Digdag Project. All Rights Reserved.</p>
+    <p>Digdag is an open source project invented and sponsored by <a href="https://github.com/treasure-data">Treasure Data, Inc.</a> under the Apache 2.0 Licence.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
